@@ -1,0 +1,11 @@
+C:\Users\marco\OneDrive\Desktop\School\Degree\Year 3\PROG7312\Part 1\App\MunicipalServicesApp\MunicipalServicesApp\obj\Debug\MunicipalServicesApp.csproj.AssemblyReference.cache
+C:\Users\marco\OneDrive\Desktop\School\Degree\Year 3\PROG7312\Part 1\App\MunicipalServicesApp\MunicipalServicesApp\obj\Debug\MunicipalServicesApp.MainForm.resources
+C:\Users\marco\OneDrive\Desktop\School\Degree\Year 3\PROG7312\Part 1\App\MunicipalServicesApp\MunicipalServicesApp\obj\Debug\MunicipalServicesApp.Properties.Resources.resources
+C:\Users\marco\OneDrive\Desktop\School\Degree\Year 3\PROG7312\Part 1\App\MunicipalServicesApp\MunicipalServicesApp\obj\Debug\MunicipalServicesApp.ReportIssueForm.resources
+C:\Users\marco\OneDrive\Desktop\School\Degree\Year 3\PROG7312\Part 1\App\MunicipalServicesApp\MunicipalServicesApp\obj\Debug\MunicipalServicesApp.csproj.GenerateResource.cache
+C:\Users\marco\OneDrive\Desktop\School\Degree\Year 3\PROG7312\Part 1\App\MunicipalServicesApp\MunicipalServicesApp\obj\Debug\MunicipalServicesApp.csproj.CoreCompileInputs.cache
+C:\Users\marco\OneDrive\Desktop\School\Degree\Year 3\PROG7312\Part 1\App\MunicipalServicesApp\MunicipalServicesApp\bin\Debug\MunicipalServicesApp.exe.config
+C:\Users\marco\OneDrive\Desktop\School\Degree\Year 3\PROG7312\Part 1\App\MunicipalServicesApp\MunicipalServicesApp\bin\Debug\MunicipalServicesApp.exe
+C:\Users\marco\OneDrive\Desktop\School\Degree\Year 3\PROG7312\Part 1\App\MunicipalServicesApp\MunicipalServicesApp\bin\Debug\MunicipalServicesApp.pdb
+C:\Users\marco\OneDrive\Desktop\School\Degree\Year 3\PROG7312\Part 1\App\MunicipalServicesApp\MunicipalServicesApp\obj\Debug\MunicipalServicesApp.exe
+C:\Users\marco\OneDrive\Desktop\School\Degree\Year 3\PROG7312\Part 1\App\MunicipalServicesApp\MunicipalServicesApp\obj\Debug\MunicipalServicesApp.pdb
