@@ -91,7 +91,7 @@ namespace MunicipalServicesApp
             IssueRepository.Add(_draft);
 
             progressBar.Value = progressBar.Maximum;
-            lblMicrocopy.Text = "Thanks—your report was submitted. This helps improve services in your area.";
+            lblMicrocopy.Text = "Thanks—your report was submitted. \nThis helps improve services in your area.";
 
             MessageBox.Show("Issue submitted successfully!", "Success",
                 MessageBoxButtons.OK, MessageBoxIcon.Information);
