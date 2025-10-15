@@ -75,7 +75,7 @@
             this.lblComingSoon.Name = "lblComingSoon";
             this.lblComingSoon.Size = new System.Drawing.Size(213, 18);
             this.lblComingSoon.TabIndex = 3;
-            this.lblComingSoon.Text = "Other features coming in Part 2";
+            this.lblComingSoon.Text = "Other features coming in Part 3";
             // 
             // MainForm
             // 
@@ -91,6 +91,7 @@
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Municipal Services";
+            this.Load += new System.EventHandler(this.MainForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

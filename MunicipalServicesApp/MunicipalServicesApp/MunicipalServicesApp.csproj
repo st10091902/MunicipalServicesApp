@@ -46,7 +46,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\EventPriorityQueue.cs" />
+    <Compile Include="Data\EventsRepository.cs" />
     <Compile Include="Data\IssueRepository.cs" />
+    <Compile Include="Data\Seed.cs" />
+    <Compile Include="EventsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EventsForm.Designer.cs">
+      <DependentUpon>EventsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -54,6 +63,7 @@
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\Attachment.cs" />
+    <Compile Include="Models\EventItem.cs" />
     <Compile Include="Models\Issue.cs" />
     <Compile Include="Models\IssueCategory.cs" />
     <Compile Include="Program.cs" />
@@ -64,6 +74,10 @@
     <Compile Include="ReportIssueForm.Designer.cs">
       <DependentUpon>ReportIssueForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Theme.cs" />
+    <EmbeddedResource Include="EventsForm.resx">
+      <DependentUpon>EventsForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
