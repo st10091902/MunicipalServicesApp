@@ -136,3 +136,92 @@ MunicipalServicesApp/
           dlg.ShowDialog(this);
       }
   }
+'''
+# Part 3 — Service Request Status
+
+## Tech Stack
+- C# / .NET Framework 4.8 · WinForms
+
+## Run
+Main Menu → **Service Request Status**.
+
+## Use
+- **Find**: enter a **Request #** or a **keyword** and click **Find**.  
+- **Advance Status**: steps a request through Received → InQueue → Assigned → Resolved.  
+- **Suggest Assignment**: chooses the next request by **min-heap** (lower ETA first, tie-break by higher Priority).  
+- **Nearest Depot**: uses a **graph + BFS** from the request’s ward to the closest depot.  
+- **MST Weight**: shows total cost of a **minimum spanning tree** across the ward network.
+
+## Data Structures used
+- **BST (custom)** → `RequestNo → ServiceRequest` (fast numeric lookup).  
+- **AVL (custom)** → `keyword → {requestNos}` (balanced keyword index).  
+- **SortedDictionary<DateTime, List<ServiceRequest>** (RB-tree) → index by Created date.  
+- **Min-Heap (custom)** → scheduling by `ETA` then `Priority`.  
+- **Graph + BFS** → nearest depot to a ward.  
+- **Prim MST** → minimal total connection weight across wards.
+
+## Files
+- `Data/RequestRepository.cs` · `Models/ServiceRequest.cs`  
+- `Data/Structures/BstByRequestNo.cs` · `AvlKeywordIndex.cs` · `MinHeap.cs` · `Graph.cs`  
+- `Data/CityGraph.cs` (ward/depot network) · `Seed.cs` (`LoadRequests()`)  
+- `StatusForm.cs` / `StatusForm.Designer.cs`
+
+# Implementation Report — Service Request Status (Task 3)
+
+## How to Compile and Run
+1. Open `MunicipalServicesApp.sln` in Visual Studio 2022 (or 2019 with .NET 4.8 dev pack).
+2. Project → Properties → **Target Framework = .NET Framework 4.8**.
+3. Build → **Build Solution**; Run with **F5**.
+4. Main Menu → **Service Request Status**. Seeded demo data is loaded automatically (`Seed.LoadRequests()`).
+
+## Feature Overview
+- **Grid view** lists requests (No, Title, Category, Ward, Priority, ETA, Status, Created).
+- **Find** accepts a numeric Request # (BST) or a free-text keyword (AVL).
+- **Advance Status** transitions the workflow: Received → InQueue → Assigned → Resolved.
+- **Suggest Assignment** uses a **min-heap** (ETA ↑, tie → Priority ↓) to pick the next job.
+- **Nearest Depot** performs **BFS** across wards/depots to find the closest depot to the request’s ward.
+- **MST Weight** runs **Prim** to calculate a minimum spanning tree total weight for the ward network.
+
+## Data Structures and Their Contribution
+
+### 1) Binary Search Tree (BST) — `BstByRequestNo`
+- **Purpose:** O(log n) lookup by numeric `RequestNo`.
+- **Where used:** `RequestRepository.Bst.Find(no)` inside **Find**.
+- **Why it helps:** Immediate retrieval without scanning the list; scales as requests grow.
+
+### 2) AVL Tree — `AvlKeywordIndex`
+- **Purpose:** Balanced index mapping **keyword → set(requestNos)**.
+- **Where used:** keyword branch in **Find**; results are joined to requests.
+- **Why it helps:** Ensures O(log n) updates/lookups even as vocabulary expands; robust under skewed input.
+
+### 3) Red-Black Tree (via `SortedDictionary<DateTime, List<ServiceRequest>>`)
+- **Purpose:** Maintain requests sorted by Created date.
+- **Where used:** `RequestRepository.ByDate` (indexing & potential date-range operations).
+- **Why it helps:** Ordered iteration/range queries with balanced-tree guarantees.
+
+### 4) Min-Heap — `MinHeap`
+- **Purpose:** Choose the “next assignment” by minimum **ETA** (then higher **Priority**).
+- **Where used:** **Suggest Assignment** pops the heap’s root.
+- **Why it helps:** O(log n) insert/pop vs O(n) scans; perfect for dispatch queues.
+
+### 5) Graph + BFS — `Graph`, `CityGraph`
+- **Purpose:** Model ward/depots network; find **nearest depot**.
+- **Where used:** **Nearest Depot** button (`Graph.Nearest`).
+- **Why it helps:** BFS finds the shortest path in hop-weighted graphs; quick and demonstrable.
+
+### 6) Minimum Spanning Tree (Prim)
+- **Purpose:** Show an optimized connection plan across wards (total weight).
+- **Where used:** **MST Weight** button (`Graph.PrimMstWeight`).
+- **Why it helps:** Demonstrates graph algorithms beyond shortest path; indicates minimal infrastructure cost.
+
+## Relevant Code Entry Points
+- `RequestRepository.Add(...)` — updates **BST, AVL, SortedDictionary, Min-Heap** in one place.
+- `StatusForm.BtnFind_Click` — uses **BST/AVL**.
+- `StatusForm.BtnSuggest_Click` — uses **Min-Heap**.
+- `StatusForm.BtnNearestDepot_Click` — uses **BFS**.
+- `StatusForm.BtnMst_Click` — uses **Prim**.
+
+## Example
+- Enter keyword **“pothole”** → AVL resolves matching request IDs → grid shows those requests.
+- Click **Suggest Assignment** → min-heap returns the job with the smallest ETA (ties broken by higher priority).
+- Select a row on **Ward 3** → **Nearest Depot** might return **Depot B** via BFS traversal.
