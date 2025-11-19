@@ -31,7 +31,6 @@
             this.btnReportIssues = new System.Windows.Forms.Button();
             this.btnEvents = new System.Windows.Forms.Button();
             this.btnStatus = new System.Windows.Forms.Button();
-            this.lblComingSoon = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnReportIssues
@@ -47,7 +46,7 @@
             // 
             // btnEvents
             // 
-            this.btnEvents.Enabled = false;
+            this.btnEvents.Enabled = true;
             this.btnEvents.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEvents.Location = new System.Drawing.Point(290, 164);
             this.btnEvents.Name = "btnEvents";
@@ -65,24 +64,13 @@
             this.btnStatus.Size = new System.Drawing.Size(160, 44);
             this.btnStatus.TabIndex = 2;
             this.btnStatus.Text = "Service Request Status";
-            this.btnStatus.UseVisualStyleBackColor = true;
-            // 
-            // lblComingSoon
-            // 
-            this.lblComingSoon.AutoSize = true;
-            this.lblComingSoon.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblComingSoon.Location = new System.Drawing.Point(265, 317);
-            this.lblComingSoon.Name = "lblComingSoon";
-            this.lblComingSoon.Size = new System.Drawing.Size(213, 18);
-            this.lblComingSoon.TabIndex = 3;
-            this.lblComingSoon.Text = "Other features coming in Part 3";
+            this.btnStatus.UseVisualStyleBackColor = true;           
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.lblComingSoon);
             this.Controls.Add(this.btnStatus);
             this.Controls.Add(this.btnEvents);
             this.Controls.Add(this.btnReportIssues);
@@ -93,7 +81,6 @@
             this.Text = "Municipal Services";
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -102,7 +89,6 @@
         private System.Windows.Forms.Button btnReportIssues;
         private System.Windows.Forms.Button btnEvents;
         private System.Windows.Forms.Button btnStatus;
-        private System.Windows.Forms.Label lblComingSoon;
     }
 }
 

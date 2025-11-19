@@ -76,7 +76,7 @@ namespace MunicipalServicesApp
             b.ForeColor = Color.White;
             b.Cursor = Cursors.Hand;
             b.Padding = new Padding(6);
-            b.Height = Math.Max(34, b.Height);
+            b.Height = Math.Max(38, b.Height);
             b.MouseEnter += (s, e) => b.BackColor = AccentHover;
             b.MouseLeave += (s, e) => b.BackColor = Accent;
         }

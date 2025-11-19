@@ -14,6 +14,8 @@ namespace MunicipalServicesApp
             // Part 2: enable Local Events & Announcements and wire the click
             btnEvents.Enabled = true;
             btnEvents.Click += new System.EventHandler(this.btnEvents_Click);
+            btnStatus.Enabled = true;
+            btnStatus.Click += new System.EventHandler(this.btnStatus_Click);
         }
 
         private void btnReportIssues_Click(object sender, EventArgs e)
@@ -39,6 +41,16 @@ namespace MunicipalServicesApp
         private void MainForm_Load(object sender, EventArgs e)
         {
             
+        }
+      
+        private void btnStatus_Click(object sender, EventArgs e)
+        {
+            Seed.Load();
+            Seed.LoadRequests();
+            using (var dlg = new StatusForm())
+            {
+                dlg.ShowDialog(this);
+            }
         }
     }
 }
